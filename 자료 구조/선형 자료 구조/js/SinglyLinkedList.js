@@ -110,20 +110,4 @@ class SinglyLinkedList {
 
     prev.next = curr.next;
   }
-
-  print() {
-    let curr = this.head;
-
-    if (curr === null) {
-      console.log('[]');
-      return;
-    }
-
-    let s = '';
-    while (curr !== null) {
-      s += `${curr.value} `;
-      curr = curr.next;
-    }
-    console.log(`[${s}]`);
-  }
 }

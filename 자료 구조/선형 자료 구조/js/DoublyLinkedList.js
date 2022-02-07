@@ -121,36 +121,4 @@ class DoublyLinkedList {
     }
     return true;
   }
-
-  print() {
-    let curr = this.head;
-
-    if (curr === null) {
-      console.log('[]');
-      return;
-    }
-
-    let s = '';
-    while (curr !== null) {
-      s += `${curr.value} `;
-      curr = curr.next;
-    }
-    console.log(`[${s}]`);
-  }
-
-  printInv() {
-    let curr = this.tail;
-
-    if (curr === null) {
-      console.log('[]');
-      return;
-    }
-
-    let s = '';
-    while (curr !== null) {
-      s += `${curr.value} `;
-      curr = curr.prev;
-    }
-    console.log(`[${s}]`);
-  }
 }
