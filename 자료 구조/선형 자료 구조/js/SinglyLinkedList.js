@@ -127,31 +127,3 @@ class SinglyLinkedList {
     console.log(`[${s}]`);
   }
 }
-
-const myList = new SinglyLinkedList();
-
-myList.print();
-
-for (let i = 0; i < 10; i++) {
-  myList.append(i + 1);
-}
-
-myList.print();
-
-for (let i = 0; i < 10; i++) {
-  myList.prepend(i + 1);
-}
-
-myList.print();
-
-const value = myList.access(3);
-console.log(`myList.access(3) = ${value}`);
-
-myList.insert(8, 128);
-myList.print();
-
-myList.remove(4);
-myList.print();
-
-myList.setHead(10);
-myList.print();
