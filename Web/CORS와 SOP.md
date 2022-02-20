@@ -1,4 +1,4 @@
-# CORS(Cross-Origin Resource Sharing)
+# CORS(Cross-Origin Resource Sharing)와 SOP(Same-Origin Policy)
 
 웹 개발을 하면서 API 요청을 하다보면 아래와 같은 CORS 에러를 자주 만나볼 수 있다.
 
