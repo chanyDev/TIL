@@ -2,7 +2,7 @@
 
 웹 개발을 하면서 API 요청을 하다보면 아래와 같은 CORS 에러를 자주 만나볼 수 있다.
 
-![CORS](https://github.com/chanyDev/TIL/blob/main/img/Web/CORS.PNG?raw=true)
+![CORS](https://github.com/chanyDev/TIL/blob/main/img/Web/CORS%20%EC%97%90%EB%9F%AC.PNG?raw=true)
 
 CORS란 정확히 무엇이고 어떻게 CORS 에러를 해결할 수 있는지 정리해보자.
 
@@ -28,6 +28,10 @@ CORS란 정확히 무엇이고 어떻게 CORS 에러를 해결할 수 있는지 
 
 포트 : 네트워크 서비스나 특정 프로세스를 식별하는 논리 단위이며 포트는 포트 번호로 구별된다. 포트 번호는 IP 주소와 함께 쓰여 해당하는 프로토콜에 의해 사용된다. 예를 들어, HTTP 프로토콜의 기본 포트는 80이고 HTTPS 프로토콜의 기본 포트는 443이다.
 
+웹 페이지의 프로토콜, 호스트, 포트를 확인 하는 방법은 간단하다. 개발자 도구를 열고 `location`을 입력하면 Web API인 Location 객체에 접근해 확인할 수 있다.
+
+![Location 객체](https://github.com/chanyDev/TIL/blob/main/img/Web/Location%20%EA%B0%9D%EC%B2%B4.PNG?raw=true)
+
 `https://www.google.co.kr` 의 출처를 기준으로 살펴보자.
 
 - `https://www.google.co.kr/main.html` => 요청 성공(동일 출처)
@@ -35,7 +39,7 @@ CORS란 정확히 무엇이고 어떻게 CORS 에러를 해결할 수 있는지 
 - `https://www.naver.com/main.html` => 요청 실패(호스트가 다르다)
 - `https://www.google.co.kr:81/main.html` => 요청 실패(포트가 다르다 https는 기본 보트가 443번)
 
-보안상의 이유로 XMLHttpRequest가 동일한 출처로만 요청이 가능하도록 제한되어있었으나 웹 개발에 다른 출처로의 요청이 필요하게 되면서 CORS라는 방법이 생겼다.
+보안상의 이유로 XMLHttpRequest가 동일한 출처로만 요청이 가능하도록 제한되어있었으나 웹 개발에 다른 출처로의 요청이 필요하게 되면서 생긴 방법이 교차 출처 리소스 공유(CORS)다.
 
 <br>
 
