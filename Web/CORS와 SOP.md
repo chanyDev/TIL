@@ -55,10 +55,29 @@ CORS는 브라우저에 포함되는 정책이기 때문에 브라우저를 통�
 
 <br>
 
+## CORS의 동작
+
+그럼 어떻게 서로 다른 출처를 가진 리소스를 안전하게 사용할 수 있는지 알아보자.
+
+예를 들어 `https://foo.example` 이라는 출처에서 `https://bar.other` 출처의 리소스에 요청을 보낸다고 가정해보자.
+
+1. 브라우저와 서버간의 통신을 한다.
+2. 브라우저는 요청 헤더의 `Origin` 필드에 요청을 보내는 출처를 함께 보낸다.
+3. 서버는 이에 대한 응답으로 `Access-Control-Allow-Origin` 헤더를 다시 브라우저에 전송한다. 이때 이 필드에는 리소스에 접근 가능한 출처가 담겨있다.<br>
+   3-1. 모든 출처에서 접근이 가능하다면 `Access-Control-Allow-Origin: *`을 응답한다.<br>
+   3-2. `Access-Control-Allow-Origin: https://foo.example`을 응답한다면 해당 출처에만 리소스에 대한 접근을 허용한다.
+4. 브라우저는 자신이 보낸 요청의 `Origin`과 서버가 보낸 응답의 `Access-Control-Allow-Origin`을 비교한 후
+   유효한 응답인지 아닌지를 결정한다.
+
+기본적으로 위와 같은 흐름으로 동작한다, 하지만 CORS가 동작하는 방식은 세 가지 시나리오가 존재하고 이에 따라 변경된다.
+
+세 가지 시나리오에 대해 자세히 살펴보자.
+
+<br>
+
 ### 참고 자료
 
 https://developer.mozilla.org/ko/docs/Web/Security/Same-origin_policy<br>
 https://developer.mozilla.org/ko/docs/Web/HTTP/CORS<br>
 https://im-developer.tistory.com/165<br>
-https://velog.io/@yejinh/CORS-4tk536f0db<br>
 https://evan-moon.github.io/2020/05/21/about-cors/
