@@ -43,9 +43,22 @@ CORS란 정확히 무엇이고 어떻게 CORS 에러를 해결할 수 있는지 
 
 <br>
 
+## 교차 출처 리소스 공유(CORS)
+
+> CORS는 추가 HTTP 헤더를 사용하여, 한 출처에서 실행중인 웹 애플리케이션이 다른 출처의 리소스에 접근할 수 있는 권한을 부여하도록 알려주는 체제이다. 웹 애플리케이션은 리소스가 자신의 출처와 다를 때 교차 출처 HTTP 요청을 실행한다.
+
+![CORS](https://github.com/chanyDev/TIL/blob/main/img/Web/CORS.PNG?raw=true)
+
+웹 애플리케이션의 XMLHttpRequest와 Fetch API는 SOP를 따르기 때문에 다른 출처의 리소스를 불러오기 위해서는 올바른 CORS 헤더를 포함한 응답을 반환해야 한다.
+
+CORS는 브라우저에 포함되는 정책이기 때문에 브라우저를 통하지 않고 서버 간 통신을 할 때는 이 정책이 적용되지 않는다.
+
+<br>
+
 ### 참고 자료
 
 https://developer.mozilla.org/ko/docs/Web/Security/Same-origin_policy<br>
 https://developer.mozilla.org/ko/docs/Web/HTTP/CORS<br>
 https://im-developer.tistory.com/165<br>
-https://velog.io/@yejinh/CORS-4tk536f0db
+https://velog.io/@yejinh/CORS-4tk536f0db<br>
+https://evan-moon.github.io/2020/05/21/about-cors/
