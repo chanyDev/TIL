@@ -51,6 +51,8 @@ CORS란 정확히 무엇이고 어떻게 CORS 에러를 해결할 수 있는지 
 
 웹 애플리케이션의 XMLHttpRequest와 Fetch API는 SOP를 따르기 때문에 다른 출처의 리소스를 불러오기 위해서는 올바른 CORS 헤더를 포함한 응답을 반환해야 한다.
 
+CORS 표준은 웹 브라우저에서 해당 정보를 읽는 것이 허용된 출처를 서버에 설명할 수 있는 새로운 HTTP 헤더를 추가함으로써 동작한다.
+
 CORS는 브라우저에 포함되는 정책이기 때문에 브라우저를 통하지 않고 서버 간 통신을 할 때는 이 정책이 적용되지 않는다.
 
 <br>
@@ -62,16 +64,94 @@ CORS는 브라우저에 포함되는 정책이기 때문에 브라우저를 통�
 예를 들어 `https://foo.example` 이라는 출처에서 `https://bar.other` 출처의 리소스에 요청을 보낸다고 가정해보자.
 
 1. 브라우저와 서버간의 통신을 한다.
-2. 브라우저는 요청 헤더의 `Origin` 필드에 요청을 보내는 출처를 함께 보낸다.
-3. 서버는 이에 대한 응답으로 `Access-Control-Allow-Origin` 헤더를 다시 브라우저에 전송한다. 이때 이 필드에는 리소스에 접근 가능한 출처가 담겨있다.<br>
-   3-1. 모든 출처에서 접근이 가능하다면 `Access-Control-Allow-Origin: *`을 응답한다.<br>
-   3-2. `Access-Control-Allow-Origin: https://foo.example`을 응답한다면 해당 출처에만 리소스에 대한 접근을 허용한다.
-4. 브라우저는 자신이 보낸 요청의 `Origin`과 서버가 보낸 응답의 `Access-Control-Allow-Origin`을 비교한 후
+2. 브라우저는 요청 헤더의 [Origin](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Origin) 필드에 요청을 보내는 출처를 함께 보낸다.
+3. 서버는 이에 대한 응답으로 [Access-Control-Allow-Origin](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) 헤더를 다시 브라우저에 전송한다. 이때 이 필드에는 리소스에 접근 가능한 출처가 담겨있다.<br>
+   3-1. 모든 출처에서 접근이 가능하다면 `Access-Control-Allow-Origin: *`를 응답한다.<br>
+   3-2. `Access-Control-Allow-Origin: https://foo.example`를 응답한다면 해당 출처에만 리소스에 대한 접근을 허용한다.
+4. 브라우저는 자신이 보낸 요청의 `Origin`과 서버가 보낸 응답의 `Access-Control-Allow-Origin`를 비교한 후
    유효한 응답인지 아닌지를 결정한다.
 
 기본적으로 위와 같은 흐름으로 동작한다, 하지만 CORS가 동작하는 방식은 세 가지 시나리오가 존재하고 이에 따라 변경된다.
 
 세 가지 시나리오에 대해 자세히 살펴보자.
+
+<br>
+
+### Preflight Request
+
+프리플라이트 방식은 웹 애플리케이션 개발 시 가장 자주 마주치는 시나리오다.
+
+브라우저는 예비 요청(Preflight Request)을 전송하여 [OPTIONS](https://developer.mozilla.org/ko/docs/Web/HTTP/Methods/OPTIONS) 메서드를 통해 다른 도메인의 리소스로 HTTP 요청을 보내 실제 요청을 전송하기에 안전한지 확인한다.
+
+이후 브라우저는 자신이 보낸 예비 요청과 서버가 응답한 허용 정책을 비교한 후 안전하다고 판단되면 같은 엔드포인트로 다시 실제 요청을 보내게 된다.
+
+만약 안전하지 않다면 실제 요청을 보내지 않고 에러를 발생시킨다.
+
+![Preflight](https://github.com/chanyDev/TIL/blob/main/img/Web/preflight.png?raw=true)
+
+Preflight 시나리오는 개발자 도구를 통해 간단하게 재현해 볼 수 있다.
+
+https://www.google.co.kr 페이지에서 블로그의 리소스에 요청을 보내면 `OPTIONS` 메서드를 사용하여 예비 요청을 보내는 것을 확인할 수 있다.
+
+```js
+const headers = new Headers({
+  'Content-Type': 'application/json',
+});
+
+fetch('https://chany-dev.tistory.com/15', { headers });
+```
+
+```http
+OPTIONS https://chany-dev.tistory.com/15
+
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Access-Control-Request-Headers: content-type
+Access-Control-Request-Method: GET
+Cache-Control: no-cache
+Connection: keep-alive
+Host: chany-dev.tistory.com
+Origin: https://www.google.co.kr
+Pragma: no-cache
+Referer: https://www.google.co.kr/
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: cross-site
+```
+
+실제 브라우저가 보낸 요청을 확인하면, 단순히 `Origin`에 대한 정보뿐 아니라 예비 요청 이후에 보낼 실제 요청에 대한 다른 정보들도 포함되어 있는것을 확인할 수 있다.
+
+예비 요청에서 브라우저는 `Access-Control-Request-Headers`를 사용하여 실제 요청에서 `content-type` 헤더를 사용할 것을 알려주거나, `Access-Control-Request-Method`를 사용하여 `GET` 메서드를 사용할 것을 서버에게 미리 알려준다.
+
+예비 요청에 대한 서버의 응답도 확인해보자.
+
+```http
+OPTIONS https://chany-dev.tistory.com/15 200 OK
+
+Access-Control-Allow-Origin: https://chany-dev.tistory.com
+Content-Encoding: gzip
+Content-Length: 16191
+Content-Type: text/html; charset=utf-8
+Date: Tue, 22 Feb 2022 09:28:20 GMT
+P3P: CP='ALL DSP COR MON LAW OUR LEG DEL'
+Vary: Accept-Encoding
+X-UA-Compatible: IE=Edge
+```
+
+서버의 응답을 확인하면 `Access-Control-Allow-Origin: https://chany-dev.tistory.com` 라는 값을 확인할 수 있다. 이는 리소스에 접근이 가능한 출처는 `https://chany-dev.tistory.com` 뿐이라는 이야기이다.
+
+따라서 요청을 보낸 `https://www.google.co.kr` 출처는 허용되지 않은 출처이므로 다음과 같이 에러를 발생시킨다.
+
+![CORS 에러](https://github.com/chanyDev/TIL/blob/main/img/Web/CORS%20%EC%97%90%EB%9F%AC.PNG?raw=true)
+
+<br>
+
+### Simple Request
+
+<br>
+
+### Credential Request
 
 <br>
 
