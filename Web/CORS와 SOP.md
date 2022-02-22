@@ -139,17 +139,28 @@ Vary: Accept-Encoding
 X-UA-Compatible: IE=Edge
 ```
 
-서버의 응답을 확인하면 `Access-Control-Allow-Origin: https://chany-dev.tistory.com` 라는 값을 확인할 수 있다. 이는 리소스에 접근이 가능한 출처는 `https://chany-dev.tistory.com` 뿐이라는 이야기이다.
+서버의 응답을 확인하면 `Access-Control-Allow-Origin: https://chany-dev.tistory.com` 라는 값을 확인할 수 있다.<br>
+이는 리소스에 접근이 가능한 출처는 `https://chany-dev.tistory.com` 뿐이라는 이야기다.
 
 따라서 요청을 보낸 `https://www.google.co.kr` 출처는 허용되지 않은 출처이므로 다음과 같이 에러를 발생시킨다.
 
 ![CORS 에러](https://github.com/chanyDev/TIL/blob/main/img/Web/CORS%20%EC%97%90%EB%9F%AC.PNG?raw=true)
 
-<br>
-
 ### Simple Request
 
-<br>
+단순 요청(Simple Request)은 실제 요청을 보낸 후, 서버가 응답으로 `Access-Control-Allow-Origin` 값을 보내주면 브라우저가 요청의 `Origin` 값과 비교하여 CORS 정책 위반 여부를 검사한다.
+
+즉, 프리플라이트 방식과 예비 요청의 유무만의 차이가 있다.
+
+하지만 단순 요청은 아래와 같은 조건을 모두 충족해야 사용 가능하다.
+
+1. `GET`, `HEAD`, `POST` 중 하나의 메서드를 사용해야 한다.
+2. [Accept](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Accept), [Accept-Language](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Accept-Language), [Content-Language](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Content-Language), [Content-Type](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Content-Type)을 제외한 헤더를 사용하면 안된다.
+3. `Content-Type` 헤더를 사용하는 경우 `application/x-www-form-urlencoded`, `multipart/form-data`, `text/plain` 값만 허용한다.
+4. 요청에 [ReadableStream](https://developer.mozilla.org/ko/docs/Web/API/ReadableStream) 객체가 사용되지 않아야 한다.
+
+대부분의 HTTP API는 `text/xml` 이나 `application/json`과 같은Content-type을 갖도록 설계되기 때문에
+일반적으로 웹 애플리케이션은 위 조건을 모두 충족시키기는 어렵다.
 
 ### Credential Request
 
