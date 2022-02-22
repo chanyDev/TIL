@@ -164,6 +164,26 @@ X-UA-Compatible: IE=Edge
 
 ### Credential Request
 
+세번째 시나리오는 인증정보를 포함한 요청을 사용하는 방법이다.<br>
+다른 출처 간의 통신에서 보안을 강화하고 싶을 때 사용하는 방법이다.
+
+예를 들어, [fetch](https://developer.mozilla.org/en-US/docs/Web/API/fetch) 메서드를 사용한다면 `credentials` 옵션을 사용해 인증과 관련된 정보를 담을 수 있다.
+
+`credentials` 옵션에는 3가지 값을 사용할 수 있다.
+
+1. omit : 모든 요청에서 인증 정보를 제외한다.
+2. same-origin : 동일 출처 간 요청에서 인증 정보를 포함한다.
+3. include : 모든 요청에서 인증 정보를 포함한다.
+
+`same-origin` 또는 `inclue` 같은 옵션 값을 사용해서 요청에 인증 정보가 포함된다면 브라우저는 `Access-Control-Allow-Origin` 만 확인하는 것이 아니라 좀 더 빡빡한 검사 조건을 추가하게 된다.
+
+요청에 인증 정보가 담겨 있는 상태에서 다른 출처의 리소스를 요청하게 되면 브라우저는 CORS 정책 여부를 검사하는 룰에 다음 두 가지를 추가한다.
+
+1. `Access-Control-Allow-Origin` 헤더 값에 출처를 지정해야 한다. 즉, `*`이 아닌 명시적인 URL을 지정해야 한다.
+2. 응답 헤더에는 `Access-Control-Allow-Credentials: true`를 지정하여 자격 증명으로 실제 요청을 수행할 수 있음을 나타내야 한다.
+
+![credential](https://github.com/chanyDev/TIL/blob/main/img/Web/credential.png?raw=true)
+
 <br>
 
 ### 참고 자료
