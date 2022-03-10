@@ -20,7 +20,7 @@
 
 ## React
 
-- [Virtual DOM](https://github.com/chanyDev/TIL/blob/main/React/Virtual%20DOM.md)
+- [Virtual DOM과 재조정](https://github.com/chanyDev/TIL/blob/main/React/Virtual%20DOM%EA%B3%BC%20%EC%9E%AC%EC%A1%B0%EC%A0%95.md)
 
 - [라이프 사이클](https://github.com/chanyDev/TIL/blob/main/React/%EB%9D%BC%EC%9D%B4%ED%94%84%20%EC%82%AC%EC%9D%B4%ED%81%B4.md)
 
