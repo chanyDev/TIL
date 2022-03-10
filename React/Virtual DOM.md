@@ -35,14 +35,35 @@ DOM이나 CSSOM을 변경하는 경우에 브라우저에서는 리플로우, �
 
 문제는 리플로우, 리페인트 과정은 성능에 악영향을 끼친다는 것이다.
 
-따라서, 이 문제를 해결하기 위해 리액트는 DOM을 최소한으로 조작하기 위한 방식으로 Virtual DOM을 사용한다.
+따라서, 이 문제를 해결하기 위해 리액트는 DOM 처리 횟수를 최소화 하고 효율적으로 진행하기 위한 방식으로 Virtual DOM을 사용한다.
 
 이제 어떻게 Virtual DOM이 동작하는지에 대해서 살펴보자.
 
 <br>
 
+## Virtual DOM의 동작
+
+Virtual DOM은 실제 DOM에 접근하여 조작하는 대신 이를 추상화한 객체를 구성하여 사용한다.
+
+리액트에서 데이터가 변경되어 브라우저에 실제 DOM을 업데이트 할 때는 다음 절차를 밟는다.
+
+1. 데이터를 업데이트하면 전체 UI를 Virtual DOM에 리렌더링한다.
+2. 이전 Virtual DOM에 있던 내용과 현재 내용을 비교한다.
+3. 바뀐 부분만 실제 DOM에 적용한다.
+
+이미지로 표현하면 아래와 같다.
+
+![Virtual DOM](https://github.com/chanyDev/TIL/blob/main/img/React/Virtual%20DOM.png?raw=true)
+
+리액트에서는 이 과정을 재조정(Reconciliation)이라 한다.
+
+<br>
+
+## 재조정(Reconciliation)
+
 ### 참고 자료
 
+📙 리액트를 다루는 기술 <br>
 https://bitsofco.de/what-exactly-is-the-dom/?utm_source=CSS-Weekly&utm_campaign=Issue-341&utm_medium=email <br>
 https://ko.wikipedia.org/wiki/%EB%AC%B8%EC%84%9C_%EA%B0%9D%EC%B2%B4_%EB%AA%A8%EB%8D%B8 <br>
 https://ko.reactjs.org/docs/faq-internals.html#gatsby-focus-wrapper <br>
