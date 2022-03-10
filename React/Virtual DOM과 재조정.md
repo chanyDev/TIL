@@ -1,4 +1,4 @@
-# Virtual DOM
+# Virtual DOM과 재조정(Reconciliation)
 
 Virtual DOM은 리액트의 주요 특징으로써, 리액트는 Virtual DOM을 사용해 실제 DOM을 업데이트한다.
 
