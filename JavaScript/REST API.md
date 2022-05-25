@@ -11,7 +11,7 @@ REST는 두 가지 기본적인 규칙을 가진다.
 1. URI는 리소스를 표현하는데 집중한다.
 2. 리소스에 대한 행위는 HTTP Method를 통해 정의한다.
 
-```json
+```
 // bad case
 GET /getTodos
 GET /todos/get/1
