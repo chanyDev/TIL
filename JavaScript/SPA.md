@@ -45,13 +45,12 @@ link 방식은 아래와 같은 문제점이 존재한다.
 3. 서버와의 통신이 동기적으로 동작하기 때문에 HTML을 응답받기 전까지는 다음 태스크가 블로킹된다.
 
 ```html
+<!-- ex) 웹 주소/login -->
 <ul>
   <li><a href="/">Home</a></li>
   <li><a href="login.html">Login</a></li>
 </ul>
 ```
-
-ex) 웹 주소/login
 
 ![link 방식](https://github.com/chanyDev/TIL/blob/main/img/JS/link%20%EB%B0%A9%EC%8B%9D.PNG?raw=true)
 
