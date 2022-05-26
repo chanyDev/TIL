@@ -20,6 +20,8 @@
 
 - [REST API](https://github.com/chanyDev/TIL/blob/main/JavaScript/REST%20API.md)
 
+- [SPA](https://github.com/chanyDev/TIL/blob/main/JavaScript/SPA.md)
+
 ## React
 
 - [Virtual DOM과 재조정](https://github.com/chanyDev/TIL/blob/main/React/Virtual%20DOM%EA%B3%BC%20%EC%9E%AC%EC%A1%B0%EC%A0%95.md)
