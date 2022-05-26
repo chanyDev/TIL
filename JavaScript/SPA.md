@@ -73,6 +73,8 @@ Ajax 방식은 아래와 같은 문제점이 존재한다.
 
 이미지 출처 : https://poiemaweb.com/js-spa
 
+<br>
+
 ### Pjax 방식
 
 Pjax 방식은 History API인 pushState와 popstate 이벤트를 사용한 방식(pushState + Ajax)이다.
