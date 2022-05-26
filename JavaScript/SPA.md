@@ -22,8 +22,6 @@ SPA는 기본적으로 단일 페이지로 구성되며 새로운 페이지에 �
 
 -> 위와 같은 단점은 React의 경우 Nextjs, Nuxtjs 등의 SSR 라이브러리로 대응 가능하다.
 
-<br>
-
 ## SPA와 Routing
 
 애플리케이션의 Routing(라우팅)이란 사용자가 태스크를 수행하기 위해 화면을 전환하는 네비게이션을 관리하기 위한 기능을 의미한다.
@@ -56,8 +54,6 @@ link 방식은 아래와 같은 문제점이 존재한다.
 
 이미지 출처 : https://poiemaweb.com/js-spa
 
-<br>
-
 ### Ajax 방식
 
 Ajax 방식은 비동기로 서버와 브라우저가 데이터를 교환할 수 있는 통신 방식이며, 필요한 리소스만을 서버에 요청하고 변경된 내용만을 갈아끼워 HTML을 완성한다. => Web API인 XMLHttpRequest 객체를 기반으로 동작한다!
@@ -73,8 +69,6 @@ Ajax 방식은 아래와 같은 문제점이 존재한다.
 
 이미지 출처 : https://poiemaweb.com/js-spa
 
-<br>
-
 ### Pjax 방식
 
 Pjax 방식은 History API인 pushState와 popstate 이벤트를 사용한 방식(pushState + Ajax)이다.
@@ -83,9 +77,7 @@ pushState 메서드는 URL을 변경하고 history로 추가하지만 서버로 
 
 Pjax 방식은 URL을 변경하기 때문에 새로고침 시 요청이 서버로 전달된다. 따라서 서버 렌더링과 ajax 방식을 섞은 방식으로 서버의 자원이 필요하다.
 
-<br>
-
-🎈 **모든 아키텍처에는 trade-off가 존재하기 때문에 애플리케이션의 성향 및 상황을 고려하여 적절한 방법을 선택하자!!**
+🎈 모든 아키텍처에는 trade-off가 존재하기 때문에 애플리케이션의 성향 및 상황을 고려하여 적절한 방법을 선택하자!!
 
 ## Reference
 
