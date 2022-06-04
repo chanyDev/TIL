@@ -22,6 +22,8 @@
 
 - [SPA](https://github.com/chanyDev/TIL/blob/main/JavaScript/SPA.md)
 
+- [Promise](https://github.com/chanyDev/TIL/blob/main/JavaScript/Promise.md)
+
 ## React
 
 - [Virtual DOM과 재조정](https://github.com/chanyDev/TIL/blob/main/React/Virtual%20DOM%EA%B3%BC%20%EC%9E%AC%EC%A1%B0%EC%A0%95.md)
