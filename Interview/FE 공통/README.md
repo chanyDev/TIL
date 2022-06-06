@@ -37,7 +37,7 @@ JS 코드에서 DOM API를 사용하는 경우 이미 DOM 또는 CSSOM이 생성
 
 <br>
 
-### 3. REST API에 대해 설명하세요.
+## 3. REST API에 대해 설명하세요.
 
 REST API는 REST 아키텍쳐를 준수하는 API(Application Programing Interpace)를 뜻한다.
 
