@@ -16,6 +16,10 @@
 
 ## JS
 
+### 1. [호이스팅](https://github.com/chanyDev/TIL/tree/main/Interview/JS#1-%ED%98%B8%EC%9D%B4%EC%8A%A4%ED%8C%85%EC%97%90-%EB%8C%80%ED%95%B4-%EC%84%A4%EB%AA%85%ED%95%98%EC%84%B8%EC%9A%94)
+
+### 2. [이벤트 캡처링과 버블링](https://github.com/chanyDev/TIL/tree/main/Interview/JS#1-%ED%98%B8%EC%9D%B4%EC%8A%A4%ED%8C%85%EC%97%90-%EB%8C%80%ED%95%B4-%EC%84%A4%EB%AA%85%ED%95%98%EC%84%B8%EC%9A%94)
+
 ## REACT
 
 ### 1. [Virtual DOM](https://github.com/chanyDev/TIL/tree/main/Interview/REACT#1-virtual-dom%EC%97%90-%EB%8C%80%ED%95%B4-%EC%84%A4%EB%AA%85%ED%95%98%EC%84%B8%EC%9A%94)
