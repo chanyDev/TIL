@@ -16,13 +16,15 @@
 
 - [브라우저 환경과 이벤트 루프](https://github.com/chanyDev/TIL/blob/main/JavaScript/%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%20%ED%99%98%EA%B2%BD%EA%B3%BC%20%EC%9D%B4%EB%B2%A4%ED%8A%B8%20%EB%A3%A8%ED%94%84.md)
 
-- [프로미스](https://github.com/chanyDev/TIL/blob/main/JavaScript/%ED%94%84%EB%A1%9C%EB%AF%B8%EC%8A%A4.md)
-
 - [REST API](https://github.com/chanyDev/TIL/blob/main/JavaScript/REST%20API.md)
 
 - [SPA](https://github.com/chanyDev/TIL/blob/main/JavaScript/SPA.md)
 
 - [Promise](https://github.com/chanyDev/TIL/blob/main/JavaScript/Promise.md)
+
+## TypeScript
+
+- [타입스크립트 기초](https://github.com/chanyDev/TIL/blob/main/TypeScript/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%20%EA%B8%B0%EC%B4%88.md)
 
 ## React
 
@@ -31,6 +33,8 @@
 - [라이프 사이클](https://github.com/chanyDev/TIL/blob/main/React/%EB%9D%BC%EC%9D%B4%ED%94%84%20%EC%82%AC%EC%9D%B4%ED%81%B4.md)
 
 - [CSR과 SSR](https://github.com/chanyDev/TIL/blob/main/React/CSR%EA%B3%BC%20SSR.md)
+
+- [setState](https://github.com/chanyDev/TIL/blob/main/React/setState.md)
 
 ## Web
 
