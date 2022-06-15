@@ -28,7 +28,9 @@
 
 ## TypeScript
 
-- [타입스크립트 기초](https://github.com/chanyDev/TIL/blob/main/TypeScript/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%20%EA%B8%B0%EC%B4%88.md)
+- [타입스크립트 시작하기](https://github.com/chanyDev/TIL/blob/main/TypeScript/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0.md)
+
+- [타입스크립트의 타입](https://github.com/chanyDev/TIL/blob/main/TypeScript/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%9D%98%20%ED%83%80%EC%9E%85.md)
 
 ## React
 
@@ -39,6 +41,8 @@
 - [CSR과 SSR](https://github.com/chanyDev/TIL/blob/main/React/CSR%EA%B3%BC%20SSR.md)
 
 - [setState](https://github.com/chanyDev/TIL/blob/main/React/setState.md)
+
+- [React Query 시작하기](https://github.com/chanyDev/TIL/blob/main/React/React%20Query%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0.md)
 
 ## Web
 
