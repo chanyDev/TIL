@@ -10,6 +10,8 @@
 
 - [Sass](https://github.com/chanyDev/TIL/blob/main/CSS/Sass.md)
 
+- [텍스트 말줄임 표시하기](https://github.com/chanyDev/TIL/blob/main/CSS/%ED%85%8D%EC%8A%A4%ED%8A%B8%20%EB%A7%90%EC%A4%84%EC%9E%84%20%ED%91%9C%EC%8B%9C%ED%95%98%EA%B8%B0.md)
+
 ## JavaScript
 
 - [데이터 타입](https://github.com/chanyDev/TIL/blob/main/JavaScript/%EB%8D%B0%EC%9D%B4%ED%84%B0%20%ED%83%80%EC%9E%85.md)
