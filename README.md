@@ -34,6 +34,8 @@
 
 - [타입스크립트의 타입](https://github.com/chanyDev/TIL/blob/main/TypeScript/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%9D%98%20%ED%83%80%EC%9E%85.md)
 
+- [인터페이스](https://github.com/chanyDev/TIL/blob/main/TypeScript/%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4.md)
+
 ## React
 
 - [Virtual DOM과 재조정](https://github.com/chanyDev/TIL/blob/main/React/Virtual%20DOM%EA%B3%BC%20%EC%9E%AC%EC%A1%B0%EC%A0%95.md)
@@ -43,6 +45,8 @@
 - [CSR과 SSR](https://github.com/chanyDev/TIL/blob/main/React/CSR%EA%B3%BC%20SSR.md)
 
 - [setState](https://github.com/chanyDev/TIL/blob/main/React/setState.md)
+
+- [컴포넌트 최적화 (useCallback, useMemo, React.memo)](<https://github.com/chanyDev/TIL/blob/main/React/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%20%EC%B5%9C%EC%A0%81%ED%99%94%20(useCallback%2C%20useMemo%2C%20React.Memo).md>)
 
 - [React Query 시작하기](https://github.com/chanyDev/TIL/blob/main/React/React%20Query%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0.md)
 
