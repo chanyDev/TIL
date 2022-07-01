@@ -24,6 +24,52 @@ tsconfig.json 파일은 프로젝트를 컴파일하는 데 필요한 루트 파
 npx tsc --init
 ```
 
+tsconfig에는 다양한 옵션들이 존재하지만 주로 사용되는 옵션에 대해서만 알아보도록 한다.
+
+더 많은 옵션과 자세한 내용은 [tsconfig 공식문서](https://www.typescriptlang.org/tsconfig)에서 살펴보자.
+
+### 루트 옵션
+
+tsconfig의 루트 옵션은 타입스크립트 또는 자바스크립트 프로젝트가 설정되는 방식과 연관이 있다.
+
+#### include
+
+기본값 : `**`
+
+include 옵션은 컴파일할 대상 파일 이름 또는 패턴의 배열을 지정한다. `tsconfig.json` 파일이 위치한 디렉토리를 기준으로 확인한다.
+
+아래 살펴볼 exclude 옵션과 include 옵션은 glob 패턴을 위한 와일드카드를 지원한다.
+
+와일드 카드란?
+
+- `*` : 해당 디렉토리의 모든 파일 검색(0개 이상의 문자와 일치)
+- `?` : 임의의 하나의 문자와 일치
+- `**` : 하위 디렉토리를 재귀적으로 접근(하위 디렉토리의 하위 디렉토리가 존재하는 경우 반복해서 접근)
+
+패턴에 파일 확장자가 포함되어있지 않다면 `.ts`, `.tsx`, `.d.ts` 확장자만을 포함한다. 아래 살펴볼 allowJs 옵션을 true로 설정한다면 `.js`, `.jsx` 확장자도 포함된다.
+
+```json
+// src 디렉토리에 포함된 모든 디렉토리의 모든 파일을 포함
+{
+  "include": ["src/**/*"]
+}
+```
+
+#### exclude
+
+기본값 : `node_modules`, `bower_components`, `jspm_packages`, outDir 옵션에 지정한 경로
+
+exclude 옵션은 컴파일에 제외할 대상 파일 이름 또는 패턴의 배열을 지정한다.
+
+주의할 점은 include 옵션에 지정하지 않은 파일은 적용되지 않는다.
+
+```json
+// 단, include 에 지정되어있지 않다면 무시된다.
+{
+  "exclude": ["node_modules"]
+}
+```
+
 ## 참고 자료
 
 https://www.typescriptlang.org/tsconfig <br>
