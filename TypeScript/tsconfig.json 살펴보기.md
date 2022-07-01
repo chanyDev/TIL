@@ -78,4 +78,4 @@ exclude 옵션은 컴파일에 제외할 대상 파일 이름 또는 패턴의 �
 
 https://www.typescriptlang.org/tsconfig <br>
 https://typescript-kr.github.io/ <br>
-https://velog.io/@sooran/tsconfig.json-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%95%8C%EA%B3%A0-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
+https://joshua1988.github.io/ts/config/tsconfig.html#%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%84%A4%EC%A0%95-%ED%8C%8C%EC%9D%BC-%EC%86%8D%EC%84%B1
