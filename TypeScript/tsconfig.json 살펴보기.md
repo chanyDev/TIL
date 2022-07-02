@@ -36,9 +36,9 @@ tsconfig의 루트 옵션은 타입스크립트 또는 자바스크립트 프로
 
 #### include
 
-기본값 : `**`
-
 include 옵션은 컴파일할 대상 파일 이름 또는 패턴의 배열을 지정한다. `tsconfig.json` 파일이 위치한 디렉토리를 기준으로 확인한다.
+
+기본값 : `**`
 
 아래 살펴볼 exclude 옵션과 include 옵션은 glob 패턴을 위한 와일드카드를 지원한다.
 
@@ -60,9 +60,9 @@ include 옵션은 컴파일할 대상 파일 이름 또는 패턴의 배열을 �
 
 #### exclude
 
-기본값 : `node_modules`, `bower_components`, `jspm_packages`, outDir 옵션에 지정한 경로
-
 exclude 옵션은 컴파일에 제외할 대상 파일 이름 또는 패턴의 배열을 지정한다.
+
+기본값 : `node_modules`, `bower_components`, `jspm_packages`, outDir 옵션에 지정한 경로
 
 주의할 점은 include 옵션에 지정하지 않은 파일은 적용되지 않는다.
 
@@ -75,6 +75,44 @@ exclude 옵션은 컴파일에 제외할 대상 파일 이름 또는 패턴의 �
 ```
 
 ### 컴파일러 옵션
+
+컴파일러 옵션은 타입스크립트 구성의 대부분을 구성하며 언어가 작동하는 방식을 다룬다.
+
+#### target
+
+tsc가 코드를 컴파일 했을 때 생성되는 자바스크립트의 버전을 지정한다. 최신 브라우저는 모든 `ES6` 기능을 지원하므로 기본적으로는 `ES6`로 지정해서 사용하면 좋을 듯 하다.
+
+기본값 : `es3`
+
+#### lib
+
+컴파일에 포함될 라이브러리 목록을 지정한다.
+
+주의할 점은 컴파일 단계에서 이런 기능을 이용할 수 있다는 사실을 타입스크립트에 알릴 뿐 실제로 기능을 구현하는 것은 아니다. 따라서 실행 환경에 따라 폴리필을 제공해야 한다. [core-js](https://github.com/zloirock/core-js#readme)같은 라이브러리를 사용해 필요한 기능을 설치할 수 있다.
+
+기본값 : target 옵션에 지정한 버전의 기본 라이브러리가 지정된다.
+
+아래 예시처럼 target 옵션을 `ES6`로 지정했다면 lib 옵션을 생략할 경우 `DOM`, `DOM.Iterable`, `ES6`, `ScriptHost` 가 기본 라이브러리로 지정된다.
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES6"
+  }
+}
+```
+
+예를 들어 target을 `ES5`로 지정했는데 lib을 별도로 지정하지 않고 Promise를 사용할 경우 에러가 발생한다.
+
+![tsconfig lib error](https://github.com/chanyDev/TIL/blob/main/img/TS/tsconfig%20lib%20%EC%97%90%EB%9F%AC.png?raw=true)
+
+#### jsx
+
+JSX 코드를 어떻게 컴파일할지 지정한다.
+
+cra로 생성한 프로젝트의 tsconfig의 경우 react-jsx로 지정한다. react-jsx는 리액트 v17.0 이후로 지원하는 변환 방식으로 공식 문서에서는 몇 가지 이점을 제공한다고 설명한다. react-jsx 설정에 대한 자세한 내용은 [React 공식문서](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html)를 참고하자.
+
+React 사용 시 기본적으로 react-jsx 설정을 사용하면 좋을듯 하다.
 
 ## 참고 자료
 
