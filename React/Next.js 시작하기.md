@@ -79,9 +79,13 @@ Next.js는 기본적으로 파일 기반 라우팅을 지원한다. 따라서 �
 - `pages/index.tsx` => `/`
 - `pages/blog/post.tsx` => `/blog/post`
 
+중첩 경로는 디렉토리를 중첩하여 생성할 수 있다.
+
+- `pages/dashboard/setting/username.tsx` => `/dashboard/setting/username`
+
 동적 경로는 대괄호 표기법을 사용하여 생성할 수 있다.
 
-- `pages/post/[id].tsx`
+- `pages/post/[id].tsx` => `post/1`
 
 파라미터는 `useRouter` Hook을 사용해 router 객체에 접근할 수 있다.
 
